@@ -1,0 +1,358 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>The Shamrock – Irish Pub Bern</title>
+  <meta name="description" content="The Shamrock – Irish pub in Bern. Great beer, live sports, cozy vibe. Find opening hours, events, menus, and contact details." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Cormorant+Garamond:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --green:#0e6b37; /* emerald */
+      --green-2:#064a28; /* deep */
+      --gold:#c8a657; /* soft gold */
+      --cream:#f7f3ea; /* light bg */
+      --ink:#121212;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:#222;background:#fff}
+    a{color:var(--green);text-decoration:none}
+    a:hover{text-decoration:underline}
+    .container{max-width:1100px;margin:0 auto;padding:0 20px}
+    /* Nav */
+    .topbar{position:sticky;top:0;background:#fff;border-bottom:1px solid #eee;z-index:50}
+    .nav{display:flex;align-items:center;justify-content:space-between;padding:12px 0}
+    .brand{display:flex;gap:12px;align-items:center}
+    .badge{width:40px;height:40px;border-radius:50%;background:radial-gradient( circle at 30% 30%, var(--gold), #a5832e 60%), linear-gradient(135deg, var(--green), var(--green-2)); box-shadow:0 3px 10px rgba(0,0,0,.12); position:relative}
+    .badge:after{content:"\2663"; /* club symbol as shamrock-like */ position:absolute;inset:0;display:grid;place-items:center;font-size:22px;color:#102a18;mix-blend:multiply}
+    .logo{font-family:"Cormorant Garamond", serif;font-weight:700;font-size:1.35rem;letter-spacing:.5px}
+    .menu{display:flex;gap:18px;flex-wrap:wrap}
+    .menu a{font-weight:600;color:#333}
+    .cta{background:var(--green);color:#fff;padding:10px 14px;border-radius:10px}
+    .cta:hover{background:var(--green-2);text-decoration:none}
+
+    /* Hero */
+    .hero{position:relative;isolation:isolate}
+    .hero .media{height:min(70vh,640px);background:linear-gradient(rgba(6,74,40,.45),rgba(6,74,40,.45)), url('https://images.unsplash.com/photo-1532634896-26909d0d4b6a?q=80&w=2000&auto=format&fit=crop'); background-size:cover;background-position:center;display:grid;place-items:center;color:#fff}
+    .hero h1{font-family:"Cormorant Garamond",serif;font-size:clamp(2rem,5vw,4rem);margin:0;text-align:center}
+    .hero p{max-width:760px;text-align:center;opacity:.95}
+    .hero .chips{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-top:14px}
+    .chip{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.25);backdrop-filter:blur(4px);padding:8px 12px;border-radius:999px}
+
+    /* Sections */
+    section{padding:56px 0}
+    section h2{font-family:"Cormorant Garamond",serif;font-size:2rem;margin:0 0 18px}
+    .sub{color:#666;margin-top:-8px}
+
+    /* Opening hours */
+    .hours{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px 16px}
+    .hours div{display:flex;justify-content:space-between;padding:12px 14px;border:1px solid #eee;border-radius:12px}
+    .note{background:#fff7e6;border:1px dashed #e6c88a;color:#715a1a;padding:10px 12px;border-radius:10px}
+
+    /* Cards grid */
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px}
+    .card{border:1px solid #eee;border-radius:16px;overflow:hidden;background:#fff;display:flex;flex-direction:column}
+    .card img{width:100%;height:160px;object-fit:cover}
+    .card .body{padding:14px}
+
+    /* Features */
+    .features{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px}
+    .feature{display:flex;gap:12px;align-items:center;border:1px solid #eee;padding:12px;border-radius:12px}
+    .feat-ico{width:34px;height:34px;border-radius:10px;display:grid;place-items:center;background:#f4faf6;color:var(--green);font-size:18px}
+
+    /* Promo band */
+    .band{background:linear-gradient(135deg,var(--green),var(--green-2));color:#fff;border-radius:16px;padding:20px;display:flex;flex-wrap:wrap;gap:14px;align-items:center;justify-content:space-between}
+
+    /* Gallery */
+    .gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px}
+    .gallery img{width:100%;height:180px;object-fit:cover;border-radius:12px}
+
+    /* Contact */
+    .contact{display:grid;grid-template-columns:1.2fr .8fr;gap:18px}
+    .contact form{display:grid;gap:10px}
+    .contact input,.contact textarea{padding:12px;border:1px solid #ddd;border-radius:10px;width:100%}
+    .contact button{border:0;background:var(--gold);color:#1a1a1a;font-weight:700;border-radius:10px;padding:12px 16px}
+
+    /* Footer */
+    footer{background:#0d0f0e;color:#ddd;margin-top:48px}
+    footer .wrap{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px;padding:30px 0}
+    footer a{color:#ddd}
+    .pay{display:flex;gap:8px;flex-wrap:wrap;opacity:.9}
+    .pill{border:1px solid #333;border-radius:999px;padding:6px 10px}
+
+    @media (max-width: 820px){
+      .hours{grid-template-columns:1fr}
+      .contact{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+<body>
+  <!-- Top navigation -->
+  <div class="topbar">
+    <nav class="container nav" aria-label="Primary">
+      <div class="brand">
+        <div class="badge" aria-hidden="true"></div>
+        <div class="logo">The Shamrock · Bern</div>
+      </div>
+      <div class="menu">
+        <a href="#about">About</a>
+        <a href="#hours">Opening hours</a>
+        <a href="#events">Events</a>
+        <a href="#sports">Sports</a>
+        <a href="#menus">Menus</a>
+        <a href="#contact" class="cta">Reserve / Contact</a>
+      </div>
+    </nav>
+  </div>
+
+  <!-- Hero -->
+  <header class="hero">
+    <div class="media">
+      <div class="container" style="text-align:center">
+        <h1>Welcome to <span style="color:var(--gold)">The Shamrock</span></h1>
+        <p>Irish pub vibes in the heart of Bern — great beer, warm lighting, friendly faces, live sports and music.
+        </p>
+        <div class="chips">
+          <span class="chip">Irish & Swiss Craft Beer</span>
+          <span class="chip">Live Sports</span>
+          <span class="chip">Cozy Snugs</span>
+          <span class="chip">Music Nights</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- About -->
+    <section id="about">
+      <div class="container">
+        <h2>About The Shamrock</h2>
+        <p class="sub">A welcoming Irish pub just a few minutes from Bern main station. Join our community at the place where people meet.</p>
+        <div class="features" aria-label="Pub features">
+          <div class="feature"><div class="feat-ico">🍺</div><div>Irish & local beer on tap</div></div>
+          <div class="feature"><div class="feat-ico">🥧</div><div>Comfort food & bar bites</div></div>
+          <div class="feature"><div class="feat-ico">📶</div><div>Free Wi‑Fi</div></div>
+          <div class="feature"><div class="feat-ico">📺</div><div>Multiple screens for live sports</div></div>
+          <div class="feature"><div class="feat-ico">🌿</div><div>Outdoor seating</div></div>
+          <div class="feature"><div class="feat-ico">💳</div><div>Cards & TWINT accepted</div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Opening Hours -->
+    <section id="hours" aria-labelledby="hours-h">
+      <div class="container">
+        <h2 id="hours-h">Opening hours</h2>
+        <div class="hours" role="list">
+          <div role="listitem"><strong>Monday</strong><span>Closed</span></div>
+          <div role="listitem"><strong>Tuesday</strong><span>16:00 – 23:00</span></div>
+          <div role="listitem"><strong>Wednesday</strong><span>16:00 – 23:00</span></div>
+          <div role="listitem"><strong>Thursday</strong><span>16:00 – 00:00</span></div>
+          <div role="listitem"><strong>Friday</strong><span>16:00 – 01:00</span></div>
+          <div role="listitem"><strong>Saturday</strong><span>14:00 – 01:00</span></div>
+          <div role="listitem"><strong>Sunday</strong><span>14:00 – 22:00</span></div>
+        </div>
+        <p class="note" aria-live="polite">⚑ Holiday hours may vary. Call us to confirm big match days.
+        </p>
+      </div>
+    </section>
+
+    <!-- Events -->
+    <section id="events">
+      <div class="container">
+        <h2>Pub Events</h2>
+        <p class="sub">Weekly pub quiz, live music, and seasonal specials. Reserve a table for your group.</p>
+        <div class="grid">
+          <article class="card" aria-label="Pub Quiz">
+            <img alt="Pub quiz night" src="https://images.unsplash.com/photo-1527118732049-c88155f2107d?q=80&w=1200&auto=format&fit=crop"/>
+            <div class="body">
+              <h3>Pub Quiz – Wednesdays</h3>
+              <p>Teams of up to 6 · Starts 20:00 · Prizes & bragging rights.</p>
+            </div>
+          </article>
+          <article class="card" aria-label="Live Music">
+            <img alt="Live music" src="https://images.unsplash.com/photo-1520523839897-bd0b52f945a0?q=80&w=1200&auto=format&fit=crop"/>
+            <div class="body">
+              <h3>Live Music – Fridays</h3>
+              <p>Acoustic Irish sets & folk favourites from 21:00.</p>
+            </div>
+          </article>
+          <article class="card" aria-label="Whisky Tasting">
+            <img alt="Whisky tasting" src="https://images.unsplash.com/photo-1514362545857-3bc16bcb83b0?q=80&w=1200&auto=format&fit=crop"/>
+            <div class="body">
+              <h3>Whisky Tasting – Monthly</h3>
+              <p>Explore Irish & Scotch expressions. Booking required.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sports -->
+    <section id="sports">
+      <div class="container">
+        <h2>Sports at The Shamrock</h2>
+        <p class="sub">We aim to show as many fixtures as possible. Ask staff if you want a particular match on.</p>
+        <div class="band" role="region" aria-label="Key tournaments">
+          <strong>Now Showing:</strong>
+          <div class="pill">Premier League</div>
+          <div class="pill">Champions League</div>
+          <div class="pill">Rugby</div>
+          <div class="pill">F1</div>
+          <a class="cta" href="#contact">Reserve a screen</a>
+        </div>
+        <details style="margin-top:16px"><summary><strong>This week’s sample fixtures</strong></summary>
+          <ul>
+            <li>Tue · 18:45 — UCL: Team A vs Team B</li>
+            <li>Wed · 21:00 — UCL: Team C vs Team D</li>
+            <li>Sat · 13:30 — EPL: Team E vs Team F</li>
+            <li>Sun · 17:30 — EPL: Team G vs Team H</li>
+          </ul>
+          <p class="note">*Fixtures are examples. Replace with your real schedule or embed a calendar.*</p>
+        </details>
+      </div>
+    </section>
+
+    <!-- Menus / Downloads -->
+    <section id="menus">
+      <div class="container">
+        <h2>Menus</h2>
+        <p class="sub">Grab a bite with your pint. Download our latest menus.</p>
+        <div class="grid">
+          <article class="card">
+            <img alt="Food menu" src="https://images.unsplash.com/photo-1526318472351-c75fcf070305?q=80&w=1200&auto=format&fit=crop"/>
+            <div class="body">
+              <h3>Food</h3>
+              <p>Comfort classics and Irish pub favourites.</p>
+              <p><a href="#" download>Download PDF</a></p>
+            </div>
+          </article>
+          <article class="card">
+            <img alt="Beer menu" src="https://images.unsplash.com/photo-1516455590571-18256e5bb9ff?q=80&w=1200&auto=format&fit=crop"/>
+            <div class="body">
+              <h3>Beer & Drinks</h3>
+              <p>Taps, bottles, whiskies and cocktails.</p>
+              <p><a href="#" download>Download PDF</a></p>
+            </div>
+          </article>
+          <article class="card">
+            <img alt="Vouchers" src="https://images.unsplash.com/photo-1556740738-b6a63e27c4df?q=80&w=1200&auto=format&fit=crop"/>
+            <div class="body">
+              <h3>Gift Vouchers</h3>
+              <p>Treat a friend. Order a digital voucher.</p>
+              <p><a href="#">Order online</a></p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Gallery -->
+    <section id="gallery">
+      <div class="container">
+        <h2>Inside & Around the Pub</h2>
+        <div class="gallery" aria-label="Photo gallery">
+          <img alt="Bar counter" src="https://images.unsplash.com/photo-1504805572947-34fad45aed93?q=80&w=1200&auto=format&fit=crop"/>
+          <img alt="Cozy corner" src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?q=80&w=1200&auto=format&fit=crop"/>
+          <img alt="Beer taps" src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?q=80&w=1200&auto=format&fit=crop"/>
+          <img alt="Outdoor seating" src="https://images.unsplash.com/photo-1470337458703-46ad1756a187?q=80&w=1200&auto=format&fit=crop"/>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact & Map -->
+    <section id="contact">
+      <div class="container">
+        <h2>Reserve / Contact</h2>
+        <div class="contact">
+          <form aria-label="Contact form" onsubmit="event.preventDefault(); alert('Thanks! We will get back to you soon.');">
+            <input required type="text" name="name" placeholder="Your name" />
+            <input required type="email" name="email" placeholder="Email" />
+            <input type="tel" name="phone" placeholder="Phone (optional)" />
+            <textarea required rows="5" name="message" placeholder="Reservation request or message"></textarea>
+            <button type="submit">Send</button>
+            <small>Or email us: <a href="mailto:hello@theshamrock.ch">hello@theshamrock.ch</a></small>
+          </form>
+          <aside>
+            <div class="card" style="height:100%">
+              <div class="body">
+                <h3>Find us</h3>
+                <p>Schwarztorstrasse · 3007 Bern (placeholder)<br/>
+                3 min from Güterbahnhof tram stop.</p>
+                <iframe title="Map" style="width:100%;height:220px;border:0;border-radius:12px" loading="lazy" allowfullscreen
+                  referrerpolicy="no-referrer-when-downgrade"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2765.699!2d7.44!3d46.94!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDbCsDU2JzI0LjAiTiA3wrAyNicyNC4wIkU!5e0!3m2!1sen!2sch!4v000000000"></iframe>
+                <p><strong>Phone:</strong> <a href="tel:+41310000000">+41 31 000 00 00</a></p>
+                <p><strong>Instagram:</strong> <a href="https://instagram.com/" target="_blank" rel="noopener">@theshamrock.bern</a></p>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- Promo / Newsletter -->
+    <section aria-label="Newsletter">
+      <div class="container">
+        <div class="band">
+          <div>
+            <h3 style="margin:0 0 6px">Join The Shamrock Club</h3>
+            <p style="margin:0;opacity:.9">Monthly offers, early event access, and news in your inbox.</p>
+          </div>
+          <form onsubmit="event.preventDefault(); alert('Subscribed!');" style="display:flex;gap:10px;flex-wrap:wrap">
+            <input type="email" required placeholder="your@email.ch" style="padding:12px;border-radius:999px;border:0;min-width:260px" />
+            <button class="cta" type="submit" style="border:0">Subscribe</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container wrap">
+      <div>
+        <h4 style="margin-top:0">The Shamrock</h4>
+        <p>Bern · Switzerland<br/>hello@theshamrock.ch</p>
+        <div class="pay">
+          <span class="pill">VISA</span>
+          <span class="pill">MASTERCARD</span>
+          <span class="pill">AMEX</span>
+          <span class="pill">POSTFINANCE</span>
+          <span class="pill">TWINT</span>
+        </div>
+      </div>
+      <div>
+        <h4 style="margin-top:0">Quick links</h4>
+        <p><a href="#menus">Menus</a><br/>
+        <a href="#events">Events</a><br/>
+        <a href="#sports">Sports</a><br/>
+        <a href="#contact">Contact</a></p>
+      </div>
+      <div>
+        <h4 style="margin-top:0">Legal</h4>
+        <p><a href="#">Imprint</a> · <a href="#">Privacy</a></p>
+        <small>© <span id="y"></span> The Shamrock. All rights reserved.</small>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Schema.org -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"BarOrPub",
+    "name":"The Shamrock",
+    "address":{"@type":"PostalAddress","addressLocality":"Bern","addressCountry":"CH"},
+    "email":"hello@theshamrock.ch",
+    "servesCuisine":"Irish",
+    "url":"https://theshamrock.ch",
+    "amenityFeature":[{"@type":"LocationFeatureSpecification","name":"Wi‑Fi","value":true},{"@type":"LocationFeatureSpecification","name":"Outdoor seating","value":true},{"@type":"LocationFeatureSpecification","name":"Live sports","value":true}]
+  }
+  </script>
+  <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+</body>
+</html>
